@@ -51,6 +51,7 @@ void *ThreadRoutine(void *arg)
 	{
 		barrier_wait(&barrier2);
 	}
+	pthread_exit(NULL);
 
 }
 
@@ -75,5 +76,5 @@ int main()
 	for(int i=0; i<NTHREADS; i++)
 		pthread_join(threads[i], NULL);
 
-	exit(1);
+	return 0;
 }

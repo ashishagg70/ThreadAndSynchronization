@@ -23,10 +23,8 @@ void *ThreadRoutine(void *arg)
 			sum += array[i];
 		printf("Sum1 = %ld \n",sum);
 	}
-
 	barrier_wait(&barrier);
 	array[id] += 10;
-
 	barrier_wait(&barrier);
 	if(id == 0)
 	{
@@ -35,6 +33,7 @@ void *ThreadRoutine(void *arg)
 			sum += array[i];
 		printf("Sum2 = %ld \n",sum);
 	}
+	pthread_exit(NULL);
 }
 
 int main()
@@ -53,5 +52,5 @@ int main()
 	for(int i=0; i<NTHREADS; i++)
 		pthread_join(threads[i], NULL);
 
-	exit(1);
+	return 0;
 }

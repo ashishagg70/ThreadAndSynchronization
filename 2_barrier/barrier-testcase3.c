@@ -33,6 +33,7 @@ void *ThreadRoutine(void *arg)
 			exit(1);
 		}
 	}
+	pthread_exit(NULL);
 }
 
 int main()
@@ -51,5 +52,5 @@ int main()
 	for(int i=0; i<NTHREADS; i++)
 		pthread_join(threads[i], NULL);
 
-	exit(1);
+	return 0;
 }
