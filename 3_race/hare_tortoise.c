@@ -163,6 +163,8 @@ void* Randomizer(void *arg)
 				if(race->reposition[i].player=='T'){
 					//printf("T\n");
 					turtlePosition+=race->reposition[i].distance;
+					if(turtlePosition<0)
+						turtlePosition=0;
 					if(turtlePosition>=race->finish_distance){
 						winner='T';
 					}
@@ -170,6 +172,8 @@ void* Randomizer(void *arg)
 					//printf("H\n");
 					//printf("HarePositino: %d| change: %d\n", harePositon, race->reposition[i].distance);
 					harePositon+=race->reposition[i].distance;
+					if(harePositon<0)
+						harePositon=0;
 					if(harePositon>=race->finish_distance){
 						winner='H';
 					}
